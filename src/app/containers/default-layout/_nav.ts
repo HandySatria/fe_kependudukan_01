@@ -12,18 +12,40 @@ export const navItems: INavData[] = [
   },
   {
     title: true,
-    name: 'Theme'
+    name: 'Penduduk'
   },
   {
-    name: 'Colors',
-    url: '/theme/colors',
-    iconComponent: { name: 'cil-drop' }
+    name: 'Penduduk',
+    url: '/Penduduk',
+    iconComponent: { name: 'cil-people' },
+    children :[
+      {
+        name : 'Penduduk',
+        url:'/Penduduk/PendudukPaging'
+      },
+      {
+        name : 'Kelahiran Asli',
+        url:'/Penduduk/KelahiranAsli'
+      },
+      {
+        name : 'Pindah Masuk',
+        url:'/Penduduk/PindahMasuk'
+      },
+      {
+        name : 'Pindah Keluar',
+        url:'/Penduduk/PindahKeluar'
+      },
+      {
+        name : 'Sudah Meninggal',
+        url:'/Penduduk/SudahMeninggal'
+      },
+    ]
   },
   {
-    name: 'Typography',
-    url: '/theme/typography',
+    name: 'Lembaga Desa',
+    url: '/Penduduk/LembagaDesa',
     linkProps: { fragment: 'someAnchor' },
-    iconComponent: { name: 'cil-pencil' }
+    iconComponent: { name: 'cil-people' }
   },
   {
     name: 'Components',
@@ -35,7 +57,7 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-puzzle' },
     children: [
       {
-        name: 'Accordion',
+        name: 'Penduduk kelahiran Asli',
         url: '/base/accordion'
       },
       {

@@ -50,10 +50,10 @@
     </c-header-nav>
 
   </c-container>
-  <c-header-divider></c-header-divider>
+  <!-- <c-header-divider></c-header-divider>
   <c-container [fluid]="true">
     <c-breadcrumb-router class="ms-2"></c-breadcrumb-router>
-  </c-container>
+  </c-container> -->
 </ng-container>
 <!--</c-header>-->
 
@@ -64,16 +64,18 @@
       color=""
       [caret]="false"
       cDropdownToggle
-      class="py-0"
-    >
-      <c-avatar
+      class="py-0 text-center d-flex align-items-center"
+      [style.background]="'#f2f2f2'"
+      style="height: 100%;">
+
+      <p class="mb-0">{{userName}}</p>
+      <!-- <c-avatar
         cTextColor="primary"
         shape="rounded-1"
         size="md"
-        src="./assets/img/avatars/8.jpg"
-        status="success"
-      >
-      </c-avatar>
+        src="./assets/img/avatars/1.jpg"
+        status="success">
+      </c-avatar> -->
     </button>
     <ul cDropdownMenu class="pt-0 pr-5 w-auto">
       <li>
@@ -153,9 +155,10 @@
         <hr cDropdownDivider/>
       </li>
       <li>
-        <a routerLink="./" cDropdownItem>
-          <svg cIcon class="me-2" name="cilLockLocked"></svg>
-          Lock Account
+        <a cDropdownItem routerLink="/login" (click)="logout()">
+          <!-- <svg cIcon class="me-2" name="cilLockLocked"></svg> -->
+          <i class="bi bi-box-arrow-right"></i>
+          LogOut
         </a>
       </li>
       <li></li>

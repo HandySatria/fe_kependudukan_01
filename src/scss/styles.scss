@@ -24,3 +24,22 @@ $enable-rtl: true;
 
 // If you want to add something do it here
 @import "custom";
+/* SCSS to make the Toastr container fixed while scrolling */
+
+.toast-container {
+  position: fixed !important;
+  top: 10px; // Adjust the vertical position as needed
+  right: 10px; // Adjust the horizontal position as needed
+  z-index: 10000; // Ensure a high z-index to stay above other elements
+}
+
+.form-control {
+  border-color: #040404; /* Warna biru */
+}
+
+.form-control:focus {
+  border-color: #080808; /* Warna biru tua saat focus */
+}
+
+
+

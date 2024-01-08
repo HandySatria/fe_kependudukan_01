@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
+import { ActivatedRouteSnapshot, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guard/auth.guard';
 import { DefaultLayoutComponent } from './containers';
 import { Page404Component } from './views/pages/page404/page404.component';
 import { Page500Component } from './views/pages/page500/page500.component';
@@ -11,10 +11,11 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: '',
+    canActivate : [AuthGuard],
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
@@ -23,12 +24,12 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () =>
-          import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
+        import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
       },
       {
-        path: 'theme',
+        path: 'Penduduk',
         loadChildren: () =>
-          import('./views/theme/theme.module').then((m) => m.ThemeModule)
+        import('./views/Penduduk/penduduk.module').then((m) => m.PendudukModule)
       },
       {
         path: 'base',
