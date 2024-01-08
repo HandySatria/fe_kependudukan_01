@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,39 +6,56 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) {
+  constructor(private http: HttpClient) { }
 
-  }
-  apiurl='http://localhost:4000/api/users';
+  apiurl='http://localhost:4000';
 
-  //user
-  RegisterUser(inputdata:any){
-    return this.http.post(this.apiurl,inputdata)
+  // Login Region
+  getHeader(){
+   const token = localStorage.getItem('token') || '';
+   const header = new HttpHeaders().set('Authorization', token);
+   return header;
   }
-  GetUserbyCode(id:any){
-    return this.http.get(this.apiurl+'/'+id);
+  login(reqObj : any){
+    return this.http.post(this.apiurl+'/user/login', reqObj);
   }
-  Getall(){
-    return this.http.get(this.apiurl);
-  }
-  updateuser(id:any,inputdata:any){
-    return this.http.put(this.apiurl+'/'+id,inputdata);
-  }
-  getuserrole(){
-    return this.http.get('http://localhost:3000/role');
+  logout(){
+    const header = this.getHeader();
+    return this.http.post(this.apiurl+'/user/logout',{username : localStorage.getItem('username')}, {headers : header});
   }
   isloggedin(){
-    return sessionStorage.getItem('username')!=null;
-  }
-  getrole(){
-    return sessionStorage.getItem('role')!=null?sessionStorage.getItem('role')?.toString():'';
+    // this.http.post(this.apiurl+'/user/getUserbyUsername', {username : localStorage.getItem('username')}, {headers : this.header}).subscribe(
+    //   (response : any) =>{
+    //     if (response.data.username){
+    //       return localStorage.getItem('username');
+    //     }else{
+    //       return null;
+    //     }
+    //   }
+    //   );
+    //   return null;
+      return localStorage.getItem('token')!=null;
   }
 
-  //customer
-  GetAllCustomer(){
-    return this.http.get('http://localhost:3000/customer');
+  //Region Penduduk
+  getAllPenduduk(){
+    const header = this.getHeader();
+    return this.http.post(this.apiurl+'/penduduk/GetAllPenduduk',{}, {headers : header});
   }
-  Getaccessbyrole(role:any,menu:any){
-    return this.http.get('http://localhost:3000/roleaccess?role='+role+'&menu='+menu)
+  searchPenduduk(reqObj : any){
+    const header = this.getHeader();
+    return this.http.post(this.apiurl+'/penduduk/SearchPenduduk',reqObj, {headers : header});
   }
+
+
+  //Region Ref Master
+  getRefMasterByMasterType(reqObj : any){
+    const header = this.getHeader();
+    return this.http.post(this.apiurl+'/refmaster/GetRefMasterByMasterType',reqObj, {headers : header});
+  }
+
+  getrole(){
+    return localStorage.getItem('role')!=null?localStorage.getItem('role')?.toString():'';
+  }
+
 }

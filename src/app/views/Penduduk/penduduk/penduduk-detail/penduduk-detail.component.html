@@ -1,0 +1,168 @@
+<div class="card mb-2 " style="background-color: white;">
+  <div class="card-body">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h1 class="accordion-header">
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-warning" (click)="cancel()">CANCEL</button>
+          </div>
+          <button class="accordion-button pb-0 mb-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne" style="background-color:white; color:black;float: left; box-shadow: none;">
+            <h5 class="card-title border-buttom pb-0 mb-0">Input Data Penduduk</h5>
+          </button>
+        </h1>
+        <div id="flush-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <form class="form row g-3" [formGroup]="pendudukForm" (ngSubmit)="pendudukForm.valid ? saveForm() : showToastr()"
+            #enjiForm="ngForm">
+              <hr class="border-2">
+              <div class="col-md-6">
+                <label for="no_kk" class="form-label">No KK</label>
+                <input type="text" class="form-control" id="no_kk" formControlName="no_kk"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.no_kk.invalid}">
+              </div>
+              <div class="col-md-6">
+                <label for="nik" class="form-label">NIK</label>
+                <input type="text" class="form-control" id="nik" formControlName="nik"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.nik.invalid}">
+              </div>
+              <div class="col-md-6">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="inputAddress" formControlName="nama"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.nama.invalid}">
+              </div>
+              <div class="col-md-6">
+                <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                <select id="jenis_kelamin" class="form-select" formControlName="jenis_kelamin"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.jenis_kelamin.invalid}">
+                  <option hidden disabled selected></option>
+                  <option *ngFor="let item of listGender" [value]="item.master_key">{{ item.master_value }}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
+                <input type="text" class="form-control" id="tempat_lahir" formControlName="tempat_lahir"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.tempat_lahir.invalid}">
+              </div>
+              <div class="col-md-6">
+                <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                <input type="date" class="form-control" id="tanggal_lahir" formControlName="tanggal_lahir"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.tanggal_lahir.invalid}">
+              </div>
+              <div class="col-md-6">
+                <label for="rt" class="form-label">RT</label>
+                <select id="rt" class="form-select" formControlName="rt"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.rt.invalid}">
+                  <option hidden disabled selected></option>
+                  <option *ngFor="let item of listRT" [value]="item.master_key">{{ item.master_value }}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="rw" class="form-label">RW</label>
+                <select id="rw" class="form-select" formControlName="rw"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.rw.invalid}">
+                  <option hidden disabled selected></option>
+                  <option *ngFor="let item of listRW" [value]="item.master_key">{{ item.master_value }}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="dusun" class="form-label">Dusun</label>
+                <select id="dusun" class="form-select" formControlName="dusun"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.dusun.invalid}">
+                  <option hidden disabled selected></option>
+                  <option *ngFor="let item of listDusun" [value]="item.master_key">{{ item.master_value }}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="agama" class="form-label">Agama</label>
+                <select id="agama" class="form-select" formControlName="agama"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.agama.invalid}">
+                  <option hidden disabled selected></option>
+                  <option *ngFor="let item of listAgama" [value]="item.master_key">{{ item.master_value }}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="pendidikan" class="form-label">Pendidikan</label>
+                <select id="pendidikan" class="form-select" formControlName="pendidikan"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.pendidikan.invalid}">
+                  <option hidden disabled selected></option>
+                  <option *ngFor="let item of listPendidikan" [value]="item.master_key">{{ item.master_value }}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="pekerjaan" class="form-label">Pekerjaan</label>
+                <select id="pekerjaan" class="form-select" formControlName="pekerjaan"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.pekerjaan.invalid}">
+                  <option hidden disabled selected></option>
+                  <option *ngFor="let item of listPekerjaan" [value]="item.master_key">{{ item.master_value }}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="status_perkawinan" class="form-label">Status Perkawinan</label>
+                <select id="status_perkawinan" class="form-select" formControlName="status_perkawinan"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.status_perkawinan.invalid}">
+                  <option hidden disabled selected></option>
+                  <option *ngFor="let item of listStatPerkawinan" [value]="item.master_key">{{ item.master_value }}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="hubungan_keluarga" class="form-label">Hubungan Keluarga</label>
+                <select id="hubungan_keluarga" class="form-select" formControlName="hubungan_keluarga"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.hubungan_keluarga.invalid}">
+                  <option hidden disabled selected></option>
+                  <option *ngFor="let item of listHubKeluarga" [value]="item.master_key">{{ item.master_value }}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="golongan_darah" class="form-label">Golongan Darah</label>
+                <select id="golongan_darah" class="form-select" formControlName="golongan_darah"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.golongan_darah.invalid}">
+                  <option hidden disabled selected></option>
+                  <option *ngFor="let item of listGolDarah" [value]="item.master_key">{{ item.master_value }}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="kewarganegaraan" class="form-label">Kewarganegaraan</label>
+                <select id="kewarganegaraan" class="form-select" formControlName="kewarganegaraan" (change)="selectKewarganegaraan($event)"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.kewarganegaraan.invalid}">
+                  <option hidden disabled selected></option>
+                  <option *ngFor="let item of listKewarganegaraan" [value]="item.master_key">{{ item.master_value }}</option>
+                </select>
+              </div>
+              <div class="col-md-6" *ngIf="isWNA">
+                <label for="no_paspor" class="form-label">Nomor Paspor</label>
+                <input type="text" class="form-control" id="no_paspor" formControlName="no_paspor"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.no_paspor.invalid}">
+              </div>
+              <div class="col-md-6" *ngIf="isWNA">
+                <label for="no_kitas" class="form-label">Nomor Kitas/Kitap</label>
+                <input type="text" class="form-control" id="no_kitas" formControlName="no_kitas"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.no_kitas.invalid}">
+              </div>
+              <div class="col-md-6">
+                <label for="nama_ayah" class="form-label">Nama Ayah</label>
+                <input type="text" class="form-control" id="nama_ayah" formControlName="nama_ayah"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.nama_ayah.invalid}">
+              </div>
+              <div class="col-md-6">
+                <label for="nama_ibu" class="form-label">Nama Ibu</label>
+                <input type="text" class="form-control" id="nama_ibu" formControlName="nama_ibu"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.nama_ibu.invalid}">
+              </div>
+              <div class="col-md-6">
+                <label for="status" class="form-label">Status</label>
+                <select id="status" class="form-select" formControlName="status"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && pendudukForm.controls.status.invalid}">
+                  <option hidden disabled selected></option>
+                  <option *ngFor="let item of listStatus" [value]="item.master_key">{{ item.master_value }}</option>
+                </select>
+              </div>
+              <div class="col-12 d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary m-2">Save Data</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

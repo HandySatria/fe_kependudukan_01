@@ -1,34 +1,32 @@
-import { Component,DoCheck } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+
+import { IconSetService } from '@coreui/icons-angular';
+import { iconSubset } from './icons/icon-subset';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: '<router-outlet></router-outlet>',
 })
-export class AppComponent implements DoCheck {
-  title = 'authentication';
-  isadmin=false;
-  isMenuVisible=false;
-  constructor(private route:Router){
-    let role=sessionStorage.getItem('role');
-    if(role=='admin'){
-      this.isadmin=true;
-    }
-  }
-  ngDoCheck(): void {
-    let currentroute = this.route.url;
-    let role=sessionStorage.getItem('role');
-    if (currentroute == '/login' || currentroute == '/register') {
-      this.isMenuVisible = false
-    } else {
-      this.isMenuVisible = true
-    }
+export class AppComponent implements OnInit {
+  title = 'Aplikasi kependudukan';
 
-    if (role == 'admin') {
-      this.isadmin = true;
-    }else{
-      this.isadmin = false;
-    }
+  constructor(
+    private router: Router,
+    private titleService: Title,
+    private iconSetService: IconSetService
+  ) {
+    titleService.setTitle(this.title);
+    // iconSet singleton
+    iconSetService.icons = { ...iconSubset };
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+    });
   }
 }

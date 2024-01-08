@@ -1,40 +1,115 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { UserComponent } from './user/user.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {MaterialModule} from 'src/material.module';
-import {HttpClientModule} from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
-import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
-import { CustomerComponent } from './customer/customer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule, ToastContainerModule  } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import {
+  PERFECT_SCROLLBAR_CONFIG,
+  PerfectScrollbarConfigInterface,
+  PerfectScrollbarModule,
+} from 'ngx-perfect-scrollbar';
+
+// Import routing module
+import { AppRoutingModule } from './app-routing.module';
+
+// Import app component
+import { AppComponent } from './app.component';
+
+// Import containers
+import {
+  DefaultFooterComponent,
+  DefaultHeaderComponent,
+  DefaultLayoutComponent,
+} from './containers';
+
+import {
+  AvatarModule,
+  BadgeModule,
+  BreadcrumbModule,
+  ButtonGroupModule,
+  ButtonModule,
+  CardModule,
+  DropdownModule,
+  FooterModule,
+  FormModule,
+  GridModule,
+  HeaderModule,
+  ListGroupModule,
+  NavModule,
+  ProgressModule,
+  SharedModule,
+  SidebarModule,
+  TabsModule,
+  UtilitiesModule,
+} from '@coreui/angular';
+
+import { IconModule, IconSetService } from '@coreui/icons-angular';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true,
+};
+
+const APP_CONTAINERS = [
+  DefaultFooterComponent,
+  DefaultHeaderComponent,
+  DefaultLayoutComponent,
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RegisterComponent,
-    LoginComponent,
-    HomeComponent,
-    UserComponent,
-    UpdatepopupComponent,
-    CustomerComponent
-  ],
+  declarations: [AppComponent, ...APP_CONTAINERS],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
+    AvatarModule,
+    BreadcrumbModule,
+    FooterModule,
+    DropdownModule,
+    GridModule,
+    HeaderModule,
+    SidebarModule,
+    IconModule,
+    PerfectScrollbarModule,
+    NavModule,
+    ButtonModule,
+    FormModule,
+    UtilitiesModule,
+    ButtonGroupModule,
     ReactiveFormsModule,
-    MaterialModule,
+    SidebarModule,
+    SharedModule,
+    TabsModule,
+    ListGroupModule,
+    ProgressModule,
+    BadgeModule,
+    ListGroupModule,
+    CardModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    NgbModule,
+    ToastContainerModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy,
+    },
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+    },
+    IconSetService,
+    Title
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}
