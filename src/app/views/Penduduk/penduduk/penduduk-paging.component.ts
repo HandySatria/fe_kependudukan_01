@@ -7,6 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/auth.service';
 import { Router } from '@angular/router';
+import { count } from 'rxjs';
 
 @Component({
   templateUrl: 'penduduk-paging.component.html'
@@ -37,10 +38,15 @@ export class PendudukPagingComponent implements OnInit {
   listStatPenduduk : any;
   dusuns : any;
   refMasterResponse : any;
+  edit:string='edit'
+  pindah:string='pindah'
+  meninggal:string='meninggal'
+  totalData : string =''
+
 
   searchForm = this.builder.group({
-    no_kk : this.builder.control(''),
-    nik : this.builder.control(''),
+    no_kk : this.builder.control('', Validators.pattern(/^\d+$/)),
+    nik : this.builder.control('', Validators.pattern(/^\d+$/)),
     nama : this.builder.control(''),
     dusun : this.builder.control(''),
     rw : this.builder.control(''),
@@ -75,54 +81,56 @@ export class PendudukPagingComponent implements OnInit {
 
   search(){
     this.reqSearchObj = {};
-    if (this.searchForm.controls.no_kk.value != ''){
+    if (this.searchForm.controls.no_kk.value != '' && this.searchForm.controls.no_kk.value != null){
       this.reqSearchObj["no_kk"] = this.searchForm.controls.no_kk.value;
     }
-    if (this.searchForm.controls.nik.value != ''){
+    if (this.searchForm.controls.nik.value != '' && this.searchForm.controls.nik.value != null){
       this.reqSearchObj["nik"] = this.searchForm.controls.nik.value;
     }
-    if (this.searchForm.controls.nama.value != ''){
+    if (this.searchForm.controls.nama.value != '' && this.searchForm.controls.nama.value != null){
       this.reqSearchObj["nama"] = this.searchForm.controls.nama.value;
     }
-    if (this.searchForm.controls.jenis_kelamin.value != ''){
+    if (this.searchForm.controls.jenis_kelamin.value != '' && this.searchForm.controls.jenis_kelamin.value != null){
       this.reqSearchObj["jenis_kelamin"] = this.searchForm.controls.jenis_kelamin.value;
     }
-    if (this.searchForm.controls.rt.value != ''){
+    if (this.searchForm.controls.rt.value != '' && this.searchForm.controls.rt.value != null){
       this.reqSearchObj["rt"] = this.searchForm.controls.rt.value;
     }
-    if (this.searchForm.controls.rw.value != ''){
+    if (this.searchForm.controls.rw.value != '' && this.searchForm.controls.rw.value != null){
       this.reqSearchObj["rw"] = this.searchForm.controls.rw.value;
     }
-    if (this.searchForm.controls.dusun.value != ''){
+    if (this.searchForm.controls.dusun.value != '' && this.searchForm.controls.dusun.value != null){
       this.reqSearchObj["dusun"] = this.searchForm.controls.dusun.value;
     }
-    if (this.searchForm.controls.agama.value != ''){
+    if (this.searchForm.controls.agama.value != '' && this.searchForm.controls.agama.value != null){
       this.reqSearchObj["agama"] = this.searchForm.controls.agama.value;
     }
-    if (this.searchForm.controls.pendidikan.value != ''){
+    if (this.searchForm.controls.pendidikan.value != '' && this.searchForm.controls.pendidikan.value != null){
       this.reqSearchObj["pendidikan"] = this.searchForm.controls.pendidikan.value;
     }
-    if (this.searchForm.controls.pekerjaan.value != ''){
+    if (this.searchForm.controls.pekerjaan.value != '' && this.searchForm.controls.pekerjaan.value != null){
       this.reqSearchObj["pekerjaan"] = this.searchForm.controls.pekerjaan.value;
     }
-    if (this.searchForm.controls.status_perkawinan.value != ''){
+    if (this.searchForm.controls.status_perkawinan.value != '' && this.searchForm.controls.status_perkawinan.value != null){
       this.reqSearchObj["status_perkawinan"] = this.searchForm.controls.status_perkawinan.value;
     }
-    if (this.searchForm.controls.hubungan_keluarga.value != ''){
+    if (this.searchForm.controls.hubungan_keluarga.value != '' && this.searchForm.controls.hubungan_keluarga.value != null){
       this.reqSearchObj["hubungan_keluarga"] = this.searchForm.controls.hubungan_keluarga.value;
     }
-    if (this.searchForm.controls.golongan_darah.value != ''){
+    if (this.searchForm.controls.golongan_darah.value != '' && this.searchForm.controls.golongan_darah.value != null){
       this.reqSearchObj["golongan_darah"] = this.searchForm.controls.golongan_darah.value;
     }
-    if (this.searchForm.controls.kewarganegaraan.value != ''){
+    if (this.searchForm.controls.kewarganegaraan.value != '' && this.searchForm.controls.kewarganegaraan.value != null){
       this.reqSearchObj["kewarganegaraan"] = this.searchForm.controls.kewarganegaraan.value;
     }
 
     this.service.searchPenduduk(this.reqSearchObj).subscribe(
       (item: any) => {
         this.result = item.data.data;
+        this.totalData = this.result.length
       },
       (error) => {
+        return error
       }
     );
   }
@@ -146,6 +154,18 @@ export class PendudukPagingComponent implements OnInit {
 
   addData(){
     this.router.navigate(['Penduduk/PendudukDetail'])
+  }
+
+  action(ev : any, nik : string){
+    if (ev.target.value === this.edit){
+      this.router.navigate(['Penduduk/PendudukDetail'], {queryParams : {nik : nik, action : "edit"}})
+    }
+    if (ev.target.value === this.pindah){
+      this.router.navigate(['Penduduk/PendudukDetail'], {queryParams : {nik : nik, action : "pindah"}})
+    }
+    if (ev.target.value === this.meninggal){
+      this.router.navigate(['Penduduk/PendudukDetail'], {queryParams : {nik : nik, action : "meninggal"}})
+    }
   }
 
   reset(){

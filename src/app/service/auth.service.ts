@@ -42,9 +42,21 @@ export class AuthService {
     const header = this.getHeader();
     return this.http.post(this.apiurl+'/penduduk/GetAllPenduduk',{}, {headers : header});
   }
+  getPendudukByNIK(reqObj : any){
+    const header = this.getHeader();
+    return this.http.post(this.apiurl+'/penduduk/GetPendudukByNIK',reqObj, {headers : header});
+  }
   searchPenduduk(reqObj : any){
     const header = this.getHeader();
     return this.http.post(this.apiurl+'/penduduk/SearchPenduduk',reqObj, {headers : header});
+  }
+  createPenduduk(reqObj : any){
+    const header = this.getHeader();
+    return this.http.post(this.apiurl+'/penduduk/CreatePenduduk',reqObj, {headers : header});
+  }
+  updatePenduduk(reqObj : any){
+    const header = this.getHeader();
+    return this.http.post(this.apiurl+'/penduduk/UpdatePenduduk',reqObj, {headers : header});
   }
 
 
