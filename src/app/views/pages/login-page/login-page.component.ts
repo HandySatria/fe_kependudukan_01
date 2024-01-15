@@ -6,11 +6,11 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.scss']
 })
-export class LoginComponent {
+export class LoginPageComponent {
   constructor(private http: HttpClient,private builder: FormBuilder, private toastr: ToastrService, private service: AuthService,
     private router: Router) { }
 
