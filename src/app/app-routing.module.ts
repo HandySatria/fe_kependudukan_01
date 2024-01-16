@@ -28,6 +28,46 @@ const routes: Routes = [
         import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
       },
       {
+        path: 'ruang-diskusi',
+        loadChildren: () =>
+        import('./views/ruang-diskusi/ruang-diskusi.module').then((m) => m.RuangDiskusiModule)
+      },
+      {
+        path: 'materi',
+        loadChildren: () =>
+        import('./views/materi/materi.module').then((m) => m.MateriModule)
+      },
+      {
+        path: 'tugas',
+        loadChildren: () =>
+        import('./views/tugas/tugas.module').then((m) => m.TugasModule)
+      },
+      {
+        path: 'tes',
+        loadChildren: () =>
+        import('./views/tes/tes.module').then((m) => m.TesModule)
+      },
+      {
+        path: 'rekap-nilai',
+        loadChildren: () =>
+        import('./views/rekap-nilai/rekap-nilai.module').then((m) => m.RekapNilaiModule)
+      },
+      {
+        path: 'presensi',
+        loadChildren: () =>
+        import('./views/presensi/presensi.module').then((m) => m.PresensiModule)
+      },
+      {
+        path: 'poin-pelanggaran',
+        loadChildren: () =>
+        import('./views/poin-pelanggaran/poin-pelanggaran.module').then((m) => m.PoinPelanggaranModule)
+      },
+      {
+        path: 'biaya-sekolah',
+        loadChildren: () =>
+        import('./views/biaya-sekolah/biaya-sekolah.module').then((m) => m.BiayaSekolahModule)
+      },
+      {
         path: 'Penduduk',
         loadChildren: () =>
         import('./views/Penduduk/penduduk.module').then((m) => m.PendudukModule)

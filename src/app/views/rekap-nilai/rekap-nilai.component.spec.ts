@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { RekapNilaiComponent } from './rekap-nilai.component';
+
+describe('RekapNilaiComponent', () => {
+  let component: RekapNilaiComponent;
+  let fixture: ComponentFixture<RekapNilaiComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ RekapNilaiComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(RekapNilaiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

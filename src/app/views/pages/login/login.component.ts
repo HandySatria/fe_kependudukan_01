@@ -36,6 +36,7 @@ export class LoginComponent {
             localStorage.setItem('username', this.result.data.username);
             localStorage.setItem('role_code', this.result.data.role_code);
             localStorage.setItem('token', this.result.data.token);
+            localStorage.setItem('fullName', this.result.data.full_name);
             this.router.navigate(['']);
             this.toastr.success('Login Success');
           } else {

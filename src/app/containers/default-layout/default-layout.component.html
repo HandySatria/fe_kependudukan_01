@@ -1,5 +1,5 @@
 <!--sidebar-->
-<c-sidebar
+<!-- <c-sidebar
   #sidebar="cSidebar"
   class="d-print-none sidebar sidebar-fixed"
   id="sidebar"
@@ -23,29 +23,138 @@
   >
   </c-sidebar-brand>
   <perfect-scrollbar [config]="perfectScrollbarConfig">
-    <!--  [perfectScrollbar]="perfectScrollbarConfig"-->
     <c-sidebar-nav
       [navItems]="navItems"
       dropdownMode="close">
     </c-sidebar-nav>
   </perfect-scrollbar>
   <c-sidebar-toggler
-    *ngIf="!sidebar.narrow"
+    ?*ngIf="!sidebar.narrow"
     toggle="unfoldable"
     cSidebarToggle="sidebar">
   </c-sidebar-toggler>
-</c-sidebar>
+</c-sidebar> -->
 
 <!--main-->
-<div class="wrapper d-flex flex-column min-vh-100 dark:bg-transparent" style=" background-image: url('assets/images/bg-paging.jpeg'); background-size:100%">
-  <!--app-header-->
+
+<!-- <div class="wrapper d-flex flex-column min-vh-100 dark:bg-transparent" style=" background-image: url('assets/images/bg-paging.jpeg'); background-size:100%">
+
   <app-default-header class="mb-4 d-print-none header header-sticky" position="sticky" sidebarId="sidebar" style="background-color: rgb(227, 132, 204);"></app-default-header>
-  <!--app-body-->
+
   <div class="body flex-grow-1 px-3">
     <c-container breakpoint="lg" class="h-auto">
       <router-outlet></router-outlet>
     </c-container>
   </div>
-  <!--app footer-->
+
   <app-default-footer></app-default-footer>
+</div> -->
+
+<div class="wrapper d-flex flex-column min-vh-100">
+
+  <nav class="navbar navbar-dark bg-primary navbar-expand-lg shadow-sm py-3">
+    <div class="container">
+      <a class="navbar-brand pt-0 pb-0 text-truncate font-weight-bold" href="/u/dashboard">
+          <img src="https://kompetisi.mediadidik.com/media/d50a3d11-cbe9-44ae-9ce8-9679900b77cb.png" class="mr-2" style="height: 30px;">
+          KOMPETISI
+      </a>
+      <!-- <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-3" style="display: flex; justify-content: flex-start; min-width: 200px;">
+            <li class="nav-item dropdown">
+              <a aria-current="page" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <b><span class="bi bi-list"></span> MENU</b><span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="">
+                  <span class="icon-dwn fa fa-chalkboard"></span>&nbsp; Beranda</a>
+                </li>
+                <li><a class="dropdown-item" href="/ruang-diskusi">
+                  <span class="icon-dwn fa fa-layer-group"></span>&nbsp; Ruang Diskusi</a>
+                </li>
+                <li><a class="dropdown-item" href="/materi">
+                  <span class="icon-dwn fa fa-file-word"></span>&nbsp; Materi</a>
+                </li>
+                <li><a class="dropdown-item" href="/tugas">
+                  <span class="icon-dwn fa fa-puzzle-piece"></span>&nbsp; Tugas</a>
+                </li>
+                <li><a class="dropdown-item" href="/tes">
+                  <span class="icon-dwn fa fa-text-height"></span>&nbsp; Tes</a>
+                </li>
+                <li><a class="dropdown-item" href="/rekap-nilai">
+                  <span class="icon-dwn fa fa-arrow-alt-circle-right"></span>&nbsp; Rekap Nilai</a>
+                </li>
+                <li><a class="dropdown-item" href="/presensi">
+                  <span class="icon-dwn fa fa-street-view"></span>&nbsp; Presensi</a>
+                </li>
+                <li><a class="dropdown-item" href="/poin-pelanggaran">
+                  <span class="icon-dwn fa fa-hand-point-right"></span>&nbsp; Poin Pelanggaran</a>
+                </li>
+                <li><a class="dropdown-item" href="/biaya-sekolah">
+                  <span class="icon-dwn fa fa-money-check-alt"></span>&nbsp; Biaya Sekolah</a>
+                </li>
+              </ul>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/u/account/online"><b class="text-warning">Online 0</b></a>
+              </li>
+          </ul>
+          <form class="form-inline m-auto">
+              <input class="form-control navbar-form form-control-sm rounded-pill px-md-3" type="search"
+                  placeholder="Kata kunci" value="">
+          </form>
+          <ul class="navbar-nav ml-auto" style="display: flex; justify-content: flex-end; min-width: 350px;">
+              <li class="nav-item">
+                  <a class="nav-link" href="/u/account/notifications">
+                      <i class="fa fa-bell bell-notif bell-ring-pink"></i>
+                      <span class="d-inline d-lg-none">Notifikasi</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/u/messages">
+                      <i class="fa fa-comments"></i>
+                      <span class="d-inline d-lg-none">Pesan</span>
+                  </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a aria-current="page" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ userName }}
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Akun</a></li>
+                  <li><a class="dropdown-item" routerLink="/login" (click)="logout()">Keluar</a></li>
+
+                </ul>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+  </nav>
+
+  <section class="bg-transparent">
+    <div class="container py-4 h-100" style="min-height: 400px;">
+      <router-outlet></router-outlet>
+    </div>
+
+  </section>
+  <div class="row d-flex justify-content-center align-items-center h-60 mt-auto py-3">
+    <div class="align-items-center  text-center">
+      <!-- <a href="https://coreui.io/pro/angular/" target="_blank">CoreUI</a> -->
+      <span> Copyright @ 2024 KOMPETISI. All Rights Reserved</span>
+    </div>
+    <div class="ms-auto  text-center">
+      Powered by
+      <a href="https://coreui.io/pro/angular" target="_blank">
+        <span> Handy Ganteng</span>
+      </a>
+    </div>
+  </div>
+
 </div>
