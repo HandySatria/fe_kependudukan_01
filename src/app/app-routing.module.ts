@@ -28,6 +28,26 @@ const routes: Routes = [
         import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
       },
       {
+        path: 'pesan',
+        loadChildren: () =>
+        import('./views/pesan/pesan.module').then((m) => m.PesanModule)
+      },
+      {
+        path: 'notifikasi',
+        loadChildren: () =>
+        import('./views/notifikasi/notifikasi.module').then((m) => m.NotifikasiModule)
+      },
+      {
+        path: 'status-online',
+        loadChildren: () =>
+        import('./views/status-online/status-online.module').then((m) => m.StatusOnlineModule)
+      },
+      {
+        path: 'profile',
+        loadChildren: () =>
+        import('./views/profile/profile.module').then((m) => m.ProfileModule)
+      },
+      {
         path: 'ruang-diskusi',
         loadChildren: () =>
         import('./views/ruang-diskusi/ruang-diskusi.module').then((m) => m.RuangDiskusiModule)

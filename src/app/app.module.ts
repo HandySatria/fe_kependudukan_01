@@ -1,3 +1,6 @@
+import { PesanModule } from './views/pesan/pesan.module';
+import { NotifikasiModule } from './views/notifikasi/notifikasi.module';
+import { StatusOnlineModule } from './views/status-online/status-online.module';
 import { NgModule } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { BrowserModule, Title } from '@angular/platform-browser';
@@ -48,6 +51,7 @@ import {
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { ProfileModule } from './views/profile/profile.module';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -91,6 +95,10 @@ const APP_CONTAINERS = [
     HttpClientModule,
     NgbModule,
     ToastContainerModule,
+    ProfileModule,
+    StatusOnlineModule,
+    NotifikasiModule,
+    PesanModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-right',

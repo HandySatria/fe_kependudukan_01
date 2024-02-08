@@ -21,6 +21,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 
 import { WidgetsModule } from '../widgets/widgets.module';
+import { ProfileComponent } from '../profile/profile.component';
+import { ProfileModule } from '../profile/profile.module';
 
 @NgModule({
   imports: [
@@ -40,7 +42,8 @@ import { WidgetsModule } from '../widgets/widgets.module';
     ChartjsModule,
     AvatarModule,
     TableModule,
-    WidgetsModule
+    WidgetsModule,
+    ProfileModule
   ],
   declarations: [DashboardComponent]
 })

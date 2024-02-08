@@ -77,6 +77,12 @@
                 <li><a class="dropdown-item" href="/ruang-diskusi">
                   <span class="icon-dwn fa fa-layer-group"></span>&nbsp; Ruang Diskusi</a>
                 </li>
+                <li><a class="dropdown-item" href="/ruang-diskusi">
+                  <span class="icon-dwn fa fa-users"></span>&nbsp; Peserta Didik</a>
+                </li>
+                <li><a class="dropdown-item" href="/ruang-diskusi">
+                  <span class="icon-dwn fa fa-user-tie"></span>&nbsp; Pengajar</a>
+                </li>
                 <li><a class="dropdown-item" href="/materi">
                   <span class="icon-dwn fa fa-file-word"></span>&nbsp; Materi</a>
                 </li>
@@ -101,7 +107,7 @@
               </ul>
             </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/u/account/online"><b class="text-warning">Online 0</b></a>
+                  <a class="nav-link" href="/status-online"><b class="text-warning">Online 0</b></a>
               </li>
           </ul>
           <form class="form-inline m-auto">
@@ -110,13 +116,13 @@
           </form>
           <ul class="navbar-nav ml-auto" style="display: flex; justify-content: flex-end; min-width: 350px;">
               <li class="nav-item">
-                  <a class="nav-link" href="/u/account/notifications">
+                  <a class="nav-link" href="/notifikasi">
                       <i class="fa fa-bell bell-notif bell-ring-pink"></i>
                       <span class="d-inline d-lg-none">Notifikasi</span>
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/u/messages">
+                  <a class="nav-link" href="/pesan">
                       <i class="fa fa-comments"></i>
                       <span class="d-inline d-lg-none">Pesan</span>
                   </a>
@@ -126,8 +132,8 @@
                   {{ userName }}
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Profile</a></li>
-                  <li><a class="dropdown-item" href="#">Akun</a></li>
+                  <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                  <li  style="cursor: pointer;"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalAkun">Akun</a></li>
                   <li><a class="dropdown-item" routerLink="/login" (click)="logout()">Keluar</a></li>
 
                 </ul>
@@ -152,9 +158,25 @@
     <div class="ms-auto  text-center">
       Powered by
       <a href="https://coreui.io/pro/angular" target="_blank">
-        <span> Handy Ganteng</span>
+        <span> Handy Satria</span>
       </a>
     </div>
   </div>
 
+</div>
+
+<!-- modal Akun -->
+<div class="modal fade" id="modalAkun" tabindex="-1" aria-labelledby="modalAkun" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Perbarui Akun</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- <app-akun></app-akun> -->
+        <app-akun></app-akun>
+      </div>
+    </div>
+  </div>
 </div>
