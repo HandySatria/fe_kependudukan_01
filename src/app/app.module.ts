@@ -52,6 +52,10 @@ import {
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { ProfileModule } from './views/profile/profile.module';
+import { PengajarComponent } from './views/pengajar/pengajar.component';
+import { PesertaDidikComponent } from './views/peserta-didik/peserta-didik.component';
+import { PagesModule } from './views/pages/pages.module';
+import { KelasComponent } from './views/kelas/kelas.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -64,7 +68,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS],
+  declarations: [AppComponent, ...APP_CONTAINERS, PengajarComponent, PesertaDidikComponent, KelasComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -96,6 +100,7 @@ const APP_CONTAINERS = [
     NgbModule,
     ToastContainerModule,
     ProfileModule,
+    PagesModule,
     StatusOnlineModule,
     NotifikasiModule,
     PesanModule,

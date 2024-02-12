@@ -49,6 +49,21 @@
 
   <app-default-footer></app-default-footer>
 </div> -->
+<!-- <style>
+  .dropdown-submenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+  }
+
+
+</style> -->
 
 <div class="wrapper d-flex flex-column min-vh-100">
 
@@ -77,10 +92,10 @@
                 <li><a class="dropdown-item" href="/ruang-diskusi">
                   <span class="icon-dwn fa fa-layer-group"></span>&nbsp; Ruang Diskusi</a>
                 </li>
-                <li><a class="dropdown-item" href="/ruang-diskusi">
+                <li><a class="dropdown-item" href="/peserta-didik">
                   <span class="icon-dwn fa fa-users"></span>&nbsp; Peserta Didik</a>
                 </li>
-                <li><a class="dropdown-item" href="/ruang-diskusi">
+                <li><a class="dropdown-item" href="/pengajar">
                   <span class="icon-dwn fa fa-user-tie"></span>&nbsp; Pengajar</a>
                 </li>
                 <li><a class="dropdown-item" href="/materi">
@@ -101,9 +116,20 @@
                 <li><a class="dropdown-item" href="/poin-pelanggaran">
                   <span class="icon-dwn fa fa-hand-point-right"></span>&nbsp; Poin Pelanggaran</a>
                 </li>
+                <li class="dropdown-submenu" (mouseenter)="showSubMenu()" (mouseleave)="hideSubMenu()" style="position:relative">
+                  <a class="dropdown-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-readonly="true">
+                    <span class="icon-dwn fa fa-cogs"></span> Pengaturan<span class="fa fa-caret-right" style="float: right;"></span>
+                  </a>
+                  <ul class="dropdown-menu" [ngClass]="{'show': isSubMenuVisible}" style="position:absolute; left:100%; top:0">
+                    <li><a class="dropdown-item" href="/u/settings">Dasar</a></li>
+                    <li><a class="dropdown-item" href="/kelas" aria-current="page">Domain &amp; Langganan</a></li>
+                    <li><a class="dropdown-item" href="/u/settings/classsubjects">Kelas &amp; Mata Pelajaran</a></li>
+                  </ul>
+                </li>
                 <li><a class="dropdown-item" href="/biaya-sekolah">
                   <span class="icon-dwn fa fa-money-check-alt"></span>&nbsp; Biaya Sekolah</a>
                 </li>
+
               </ul>
             </li>
               <li class="nav-item">

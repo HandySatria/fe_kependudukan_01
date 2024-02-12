@@ -38,6 +38,21 @@ const routes: Routes = [
         import('./views/notifikasi/notifikasi.module').then((m) => m.NotifikasiModule)
       },
       {
+        path: 'pengajar',
+        loadChildren: () =>
+        import('./views/pengajar/pengajar.module').then((m) => m.PengajarModule)
+      },
+      {
+        path: 'peserta-didik',
+        loadChildren: () =>
+        import('./views/peserta-didik/peserta-didik.module').then((m) => m.PesertaDidikModule)
+      },
+      {
+        path: 'kelas',
+        loadChildren: () =>
+        import('./views/kelas/kelas.module').then((m) => m.KelasModule)
+      },
+      {
         path: 'status-online',
         loadChildren: () =>
         import('./views/status-online/status-online.module').then((m) => m.StatusOnlineModule)

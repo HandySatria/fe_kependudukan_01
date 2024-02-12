@@ -24,6 +24,15 @@ userName : string = '';
     //Add 'implements OnInit' to the class.
     this.userName = localStorage.getItem('fullName') || '';
   }
+  isSubMenuVisible: boolean = false;
+
+  showSubMenu() {
+    this.isSubMenuVisible = true;
+  }
+
+  hideSubMenu() {
+    this.isSubMenuVisible = false;
+  }
 
   logout(){
 

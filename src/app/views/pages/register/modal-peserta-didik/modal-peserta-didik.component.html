@@ -1,0 +1,130 @@
+<div class="mb-3 row">
+  <label for="kelas" class="col-sm-4 col-form-label text-md-end">Kelas <span class="text-danger">*</span></label>
+  <div class="col-sm-5">
+    <select id="kelas" class="form-select" formControlName="kelas">
+      <option selected hidden>Pilih Kelas</option>
+      <option disabled>Kelas Reguler</option>
+      <option>Kelas Reguler - MTK</option>
+      <option>Kelas Reguler - IPA</option>
+    </select>
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="NIS" class="col-sm-4 col-form-label text-md-end">NIS</label>
+  <div class="col-sm-7">
+    <input type="text" class="form-control" id="NIS">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="Nama" class="col-sm-4 col-form-label text-md-end">Nama <span class="text-danger">*</span></label>
+  <div class="col-sm-8">
+    <input type="text" class="form-control" id="Nama">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="jenis_kelamin" class="col-sm-4 col-form-label text-md-end">Jenis Kelamin <span class="text-danger">*</span></label>
+  <div class="col-sm-5">
+    <select id="jenis_kelamin" class="form-select" formControlName="jenis_kelamin">
+      <option selected>Pilih Jenis Kelamin</option>
+      <option>Laki-laki</option>
+      <option>Perempuan</option>
+    </select>
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="tempat_lahir" class="col-sm-4 col-form-label text-md-end">Tempat Lahir</label>
+  <div class="col-sm-7">
+    <input type="text" class="form-control" id="tempat_lahir">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="tanggal_lahir" class="col-sm-4 col-form-label text-md-end">Tanggal Lahir</label>
+  <div class="col-sm-8">
+    <div class="d-flex flex-row">
+      <select id="tgl_lahir" class="m-2 form-select" formControlName="tgl_lahir" style="width: 70px;">
+        <option selected>Tgl</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <select id="bln_lahir" class="m-2 form-select" formControlName="bln_lahir" style="width: 115px;">
+        <option selected>Bulan</option>
+        <option>Januari</option>
+        <option>Februari</option>
+        <option>Maret</option>
+      </select>
+      <input type="text" class="m-2 form-control" id="Nama" placeholder="Tahun" style="width: 75px;">
+    </div>
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="alamat_tinggal" class="col-sm-4 col-form-label text-md-end">Alamat Tinggal</label>
+  <div class="col-sm-8">
+    <input type="text" class="form-control" id="alamat_tinggal">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="agama" class="col-sm-4 col-form-label text-md-end">Agama</label>
+  <div class="col-sm-5">
+    <select id="jenis_kelamin" class="form-select" formControlName="jenis_kelamin">
+      <option selected>Pilih Agama</option>
+      <option>Islam</option>
+      <option>Protestan</option>
+      <option>Katolik</option>
+      <option>Hindu</option>
+      <option>Budha</option>
+      <option>Kong Hu Cu</option>
+    </select>
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="telepon" class="col-sm-4 col-form-label text-md-end">Telepon</label>
+  <div class="col-sm-7">
+    <input type="text" class="form-control" id="telepon">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="tahun_masuk" class="col-sm-4 col-form-label text-md-end">Tahun Masuk</label>
+  <div class="col-sm-7">
+    <input type="text" class="form-control" id="tahun_masuk">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="status" class="col-sm-4 col-form-label text-md-end">Status</label>
+  <div class="col-sm-5">
+    <select id="status" class="form-select" formControlName="status">
+      <option selected>Pilih Status</option>
+      <option>Tidak Aktif</option>
+      <option>Aktif</option>
+      <option>Alumni</option>
+    </select>
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="informasi_lain" class="col-sm-4 col-form-label text-md-end">Informasi Lain</label>
+  <div class="col-sm-8">
+    <textarea type="textarea" class="form-control" id="informasi_lain"></textarea>
+  </div>
+</div>
+<h5># Akun Login</h5>
+<div class="mb-3 row">
+  <label for="username" class="col-sm-4 col-form-label text-md-end">Username <span class="text-danger">*</span></label>
+  <div class="col-sm-8">
+    <input type="text" class="form-control" id="username" placeholder="Alamat E-mail">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="password" class="col-sm-4 col-form-label text-md-end">Kata Sandi <span class="text-danger">*</span></label>
+  <div class="col-sm-8">
+    <input type="password" class="form-control" id="password">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="password2" class="col-sm-4 col-form-label text-md-end">Konfirmasi Sandi <span class="text-danger">*</span></label>
+  <div class="col-sm-8">
+    <input type="password" class="form-control" id="password2">
+  </div>
+</div>
+

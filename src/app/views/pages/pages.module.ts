@@ -1,3 +1,5 @@
+import { ModalPesertaDidikComponent } from './register/modal-peserta-didik/modal-peserta-didik.component';
+import { ModalPengajarComponent } from './register/modal-pengajar/modal-pengajar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -18,7 +20,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
     RegisterComponent,
     Page404Component,
     Page500Component,
-    LoginPageComponent
+    LoginPageComponent,
+    ModalPengajarComponent,
+    ModalPesertaDidikComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +33,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
     IconModule,
     FormModule,
     ReactiveFormsModule
-  ]
+  ],
+  exports : [ModalPengajarComponent, ModalPesertaDidikComponent]
 })
 export class PagesModule {
 }
